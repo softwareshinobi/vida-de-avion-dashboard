@@ -1,0 +1,131 @@
+services:
+
+    software-shinobi-api-web:
+
+        container_name: software-shinobi-api-web
+
+        image: softwareshinobi/software-shinobi-api-web
+
+        build: 
+
+            context: web
+
+            dockerfile: Dockerfile
+
+        ports:
+
+            - 8880:80
+
+    software-shinobi-api-links:
+
+        container_name: software-shinobi-api-links
+
+        image: softwareshinobi/software-shinobi-api-links
+
+        build: 
+
+            context: links
+
+            dockerfile: Dockerfile
+
+        ports:
+
+            - 8881:80
+
+    software-shinobi-api-docs:
+
+        container_name: software-shinobi-api-docs
+
+        image: softwareshinobi/software-shinobi-api-docs
+
+        build: 
+
+            context: docs
+
+            dockerfile: Dockerfile
+
+        ports:
+
+            - 8882:80
+
+    software-shinobi-api:
+
+        container_name: software-shinobi-api
+        
+        image: softwareshinobi/software-shinobi-api
+
+        depends_on:
+
+           - software-shinobi-api-database
+
+        build: 
+
+            context: .
+
+            dockerfile: Dockerfile
+    
+        restart: unless-stopped
+
+        ports:
+
+            - "8888:8888"
+
+        environment:
+
+            DB_HOST: software-shinobi-api-database
+
+            DB_NAME: softwareshinobiapi
+
+            DB_USER: softwareshinobiapi
+
+            DB_PASS: softwareshinobiapi
+
+    software-shinobi-api-database:
+
+        container_name: software-shinobi-api-database
+
+        image: mariadb
+
+        ##   volumes:
+
+        ##       - ./.container-volumes/mariadb-server:/var/lib/mysql
+
+        ##   ports:
+
+        ##       - "8886:3306"
+
+        environment:
+
+            MYSQL_ROOT_PASSWORD: aggiepride
+
+            MYSQL_DATABASE: softwareshinobiapi
+
+            MYSQL_USER: softwareshinobiapi
+
+            MYSQL_PASSWORD: softwareshinobiapi
+
+    software-shinobi-api-phpmyadmin:
+
+        container_name: software-shinobi-api-phpmyadmin
+
+        image: beeyev/phpmyadmin-lightweight
+
+        depends_on:
+
+           - software-shinobi-api-database
+
+        links:
+
+           - software-shinobi-api-database
+
+        ports:
+
+            - 8885:80
+
+        environment:
+
+            PMA_HOST: software-shinobi-api-database
+
+            PMA_PORT: 3306
+
+            PMA_ARBITRARY: 1
