@@ -1,4 +1,4 @@
-package online.soyyomateo.api;
+package online.soyyomateo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

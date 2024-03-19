@@ -1,6 +1,5 @@
-package online.soyyomateo.api.coldapproach;
+package online.soyyomateo.coldapproach;
 
-import online.soyyomateo.api.sports.ColdApproach;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

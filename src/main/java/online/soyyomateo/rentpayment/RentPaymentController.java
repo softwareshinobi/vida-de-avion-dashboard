@@ -1,4 +1,4 @@
-package online.soyyomateo.api.rentpayment;
+package online.soyyomateo.rentpayment;
 
 import java.util.List;
 import org.json.JSONObject;

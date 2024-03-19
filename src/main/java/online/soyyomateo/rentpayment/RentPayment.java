@@ -1,4 +1,4 @@
-package online.soyyomateo.api.rentpayment;
+package online.soyyomateo.rentpayment;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

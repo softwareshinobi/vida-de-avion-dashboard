@@ -1,7 +1,5 @@
-package online.soyyomateo.api.notes;
+package online.soyyomateo.coldapproach;
 
-import online.soyyomateo.api.sports.ColdApproach;
-import online.soyyomateo.api.sports.ColdApproachService;
 import java.util.List;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

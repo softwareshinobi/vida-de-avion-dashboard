@@ -1,4 +1,4 @@
-package online.soyyomateo.api.sports;
+package online.soyyomateo.coldapproach;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

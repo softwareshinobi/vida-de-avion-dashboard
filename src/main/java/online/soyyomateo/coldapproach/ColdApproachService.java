@@ -1,4 +1,4 @@
-package online.soyyomateo.api.sports;
+package online.soyyomateo.coldapproach;
 
 import jakarta.transaction.Transactional;
 import java.sql.SQLException;

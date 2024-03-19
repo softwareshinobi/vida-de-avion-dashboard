@@ -1,4 +1,4 @@
-package online.soyyomateo.api.rentpayment;
+package online.soyyomateo.rentpayment;
 
 import jakarta.transaction.Transactional;
 import java.sql.SQLException;
