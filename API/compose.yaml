@@ -1,10 +1,10 @@
 services:
 
-    software-shinobi-api-web:
+    vida-de-avion-dashboard-web:
 
-        container_name: software-shinobi-api-web
+        container_name: vida-de-avion-dashboard-web
 
-        image: softwareshinobi/software-shinobi-api-web
+        image: softwareshinobi/vida-de-avion-dashboard-web
 
         build: 
 
@@ -14,29 +14,13 @@ services:
 
         ports:
 
-            - 8880:80
+            - 8080:80
 
-    software-shinobi-api-links:
+    vida-de-avion-dashboard-docs:
 
-        container_name: software-shinobi-api-links
+        container_name: vida-de-avion-dashboard-docs
 
-        image: softwareshinobi/software-shinobi-api-links
-
-        build: 
-
-            context: links
-
-            dockerfile: Dockerfile
-
-        ports:
-
-            - 8881:80
-
-    software-shinobi-api-docs:
-
-        container_name: software-shinobi-api-docs
-
-        image: softwareshinobi/software-shinobi-api-docs
+        image: softwareshinobi/vida-de-avion-dashboard-docs
 
         build: 
 
@@ -46,17 +30,17 @@ services:
 
         ports:
 
-            - 8882:80
+            - 8881:80
 
-    software-shinobi-api:
+    vida-de-avion-dashboard-api:
 
-        container_name: software-shinobi-api
+        container_name: vida-de-avion-dashboard-api
         
-        image: softwareshinobi/software-shinobi-api
+        image: softwareshinobi/vida-de-avion-dashboard-api
 
         depends_on:
 
-           - software-shinobi-api-database
+           - vida-de-avion-dashboard-database
 
         build: 
 
@@ -72,17 +56,17 @@ services:
 
         environment:
 
-            DB_HOST: software-shinobi-api-database
+            DB_HOST: vida-de-avion-dashboard-database
 
-            DB_NAME: softwareshinobiapi
+            DB_NAME: vida_de_avion
 
-            DB_USER: softwareshinobiapi
+            DB_USER: vida_de_avion
 
-            DB_PASS: softwareshinobiapi
+            DB_PASS: vida_de_avion
 
-    software-shinobi-api-database:
+    vida-de-avion-dashboard-database:
 
-        container_name: software-shinobi-api-database
+        container_name: vida-de-avion-dashboard-database
 
         image: mariadb
 
@@ -90,33 +74,33 @@ services:
 
         ##       - ./.container-volumes/mariadb-server:/var/lib/mysql
 
-        ##   ports:
+        ports:
 
-        ##       - "8886:3306"
+            - "8886:3306"
 
         environment:
 
             MYSQL_ROOT_PASSWORD: aggiepride
 
-            MYSQL_DATABASE: softwareshinobiapi
+            MYSQL_DATABASE: vida_de_avion
 
-            MYSQL_USER: softwareshinobiapi
+            MYSQL_USER: vida_de_avion
 
-            MYSQL_PASSWORD: softwareshinobiapi
+            MYSQL_PASSWORD: vida_de_avion
 
-    software-shinobi-api-phpmyadmin:
+    vida-de-avion-dashboard-phpmyadmin:
 
-        container_name: software-shinobi-api-phpmyadmin
+        container_name: vida-de-avion-dashboard-phpmyadmin
 
         image: beeyev/phpmyadmin-lightweight
 
         depends_on:
 
-           - software-shinobi-api-database
+           - vida-de-avion-dashboard-database
 
         links:
 
-           - software-shinobi-api-database
+           - vida-de-avion-dashboard-database
 
         ports:
 
@@ -124,7 +108,7 @@ services:
 
         environment:
 
-            PMA_HOST: software-shinobi-api-database
+            PMA_HOST: vida-de-avion-dashboard-database
 
             PMA_PORT: 3306
 
