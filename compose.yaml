@@ -48,11 +48,11 @@ services:
 
             - 8882:80
 
-    software-shinobi-api:
+    vida-de-avion-server:
 
-        container_name: software-shinobi-api
+        container_name: vida-de-avion-server
         
-        image: softwareshinobi/software-shinobi-api
+        image: softwareshinobi/vida-de-avion-server
 
         depends_on:
 
